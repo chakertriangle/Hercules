@@ -3498,7 +3498,7 @@ static int skill_attack_copy_unknown(int *attack_type, struct block_list *src, s
 	return *skill_id;
 }
 
-static void skill_attack_blow_unknown(int *attack_type, struct block_list *src, struct block_list *dsrc, struct block_list *bl, uint16 *skill_id, uint16 *skill_lv, int64 *tick, int *flag, int *type, struct Damage *dmg, int64 *damage, int8 *dir)
+static void skill_attack_blow_unknown(int *attack_type, struct block_list *src, struct block_list *dsrc, struct block_list *bl, uint16 *skill_id, uint16 *skill_lv, int64 *tick, int *flag, int *type, struct Damage *dmg, int64 *damage, enum unit_dir *dir)
 {
 	nullpo_retv(bl);
 	nullpo_retv(dmg);
