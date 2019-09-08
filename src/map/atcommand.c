@@ -4123,16 +4123,36 @@ ACMD(mapinfo)
 			for (i = 0; i < map->list[m_id].npc_num;) {
 				struct npc_data *nd = map->list[m_id].npc[i];
 				switch(nd->dir) {
-					case 0:  strcpy(direction, msg_fd(fd,1101)); break; // North
-					case 1:  strcpy(direction, msg_fd(fd,1102)); break; // North West
-					case 2:  strcpy(direction, msg_fd(fd,1103)); break; // West
-					case 3:  strcpy(direction, msg_fd(fd,1104)); break; // South West
-					case 4:  strcpy(direction, msg_fd(fd,1105)); break; // South
-					case 5:  strcpy(direction, msg_fd(fd,1106)); break; // South East
-					case 6:  strcpy(direction, msg_fd(fd,1107)); break; // East
-					case 7:  strcpy(direction, msg_fd(fd,1108)); break; // North East
-					case 9:  strcpy(direction, msg_fd(fd,1109)); break; // North
-					default: strcpy(direction, msg_fd(fd,1110)); break; // Unknown
+				case UNIT_DIR_NORTH:
+					strcpy(direction, msg_fd(fd, 1101));
+					break;
+				case UNIT_DIR_NORTHWEST:
+					strcpy(direction, msg_fd(fd, 1102));
+					break;
+				case UNIT_DIR_WEST:
+					strcpy(direction, msg_fd(fd, 1103));
+					break;
+				case UNIT_DIR_SOUTHWEST:
+					strcpy(direction, msg_fd(fd, 1104));
+					break;
+				case UNIT_DIR_SOUTH:
+					strcpy(direction, msg_fd(fd, 1105));
+					break;
+				case UNIT_DIR_SOUTHEAST:
+					strcpy(direction, msg_fd(fd, 1106));
+					break;
+				case UNIT_DIR_EAST:
+					strcpy(direction, msg_fd(fd, 1107));
+					break;
+				case UNIT_DIR_NORTHEAST:
+					strcpy(direction, msg_fd(fd, 1108));
+					break;
+				case 9: // is this actually used? [skyleo]
+					strcpy(direction, msg_fd(fd, 1109));
+					break; // North
+				default:
+					strcpy(direction, msg_fd(fd, 1110));
+					break; // Unknown
 				}
 				if(strcmp(nd->name,nd->exname) == 0)
 					safesnprintf(atcmd_output, sizeof(atcmd_output), msg_fd(fd,1111), // NPC %d: %s | Direction: %s | Sprite: %d | Location: %d %d
@@ -6838,7 +6858,7 @@ ACMD(identify)
 			}
 		}
 	}
-	
+
 	if (num == 0)
 		clif->message(fd,msg_fd(fd,1238)); // There are no items to appraise.
 	else if (!identifyall)
