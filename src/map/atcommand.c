@@ -4124,35 +4124,35 @@ ACMD(mapinfo)
 				struct npc_data *nd = map->list[m_id].npc[i];
 				switch(nd->dir) {
 				case UNIT_DIR_NORTH:
-					strcpy(direction, msg_fd(fd, 1101));
+					strcpy(direction, msg_fd(fd, 1101)); // North
 					break;
 				case UNIT_DIR_NORTHWEST:
-					strcpy(direction, msg_fd(fd, 1102));
+					strcpy(direction, msg_fd(fd, 1102)); // North West
 					break;
 				case UNIT_DIR_WEST:
-					strcpy(direction, msg_fd(fd, 1103));
+					strcpy(direction, msg_fd(fd, 1103)); // West
 					break;
 				case UNIT_DIR_SOUTHWEST:
-					strcpy(direction, msg_fd(fd, 1104));
+					strcpy(direction, msg_fd(fd, 1104)); // South West
 					break;
 				case UNIT_DIR_SOUTH:
-					strcpy(direction, msg_fd(fd, 1105));
+					strcpy(direction, msg_fd(fd, 1105)); // South
 					break;
 				case UNIT_DIR_SOUTHEAST:
-					strcpy(direction, msg_fd(fd, 1106));
+					strcpy(direction, msg_fd(fd, 1106)); // South East
 					break;
 				case UNIT_DIR_EAST:
-					strcpy(direction, msg_fd(fd, 1107));
+					strcpy(direction, msg_fd(fd, 1107)); // East
 					break;
 				case UNIT_DIR_NORTHEAST:
-					strcpy(direction, msg_fd(fd, 1108));
+					strcpy(direction, msg_fd(fd, 1108)); // North East
 					break;
 				case 9: // is this actually used? [skyleo]
-					strcpy(direction, msg_fd(fd, 1109));
-					break; // North
+					strcpy(direction, msg_fd(fd, 1109)); // North
+					break;
 				default:
-					strcpy(direction, msg_fd(fd, 1110));
-					break; // Unknown
+					strcpy(direction, msg_fd(fd, 1110)); // Unknown
+					break;
 				}
 				if(strcmp(nd->name,nd->exname) == 0)
 					safesnprintf(atcmd_output, sizeof(atcmd_output), msg_fd(fd,1111), // NPC %d: %s | Direction: %s | Sprite: %d | Location: %d %d
